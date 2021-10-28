@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EX2</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div id="exercise">
+    <div class="form-group">
+      <input type="text" placeholder="Student name" class="form-control" v-model="name" />
+
+      <select class="form-control" v-model="topic">
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="Python">PYTHON</option>
+        <option value="Java">JAVA</option>
+      </select>
+      <input type="text" placeholder="Student Result" class="form-control" v-model="result" />
+      <button @click="addScore" type="button">Add</button>
+    </div>
+    <div class="table-container">
+      <table>
+        <tr>
+          <th>STUDENT</th>
+          <th>TOPICS</th>
+          <th>SCORES</th>
+        </tr>
+        <tr v-for="score in scores">
+          <td>{{score.name}}</td>
+          <td>{{score.topic}}</td>
+          <td v-if="score.result < 50" class="text-danger">{{score.result}}</td>
+          <td v-else>{{score.result}}</td>
+        </tr>
+      </table>
+    </div>
+    <h1>HTML AVERAGE</h1>
+    <p>{{htmlAverage}}</p>
+  </div>
+  <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+  <script src="ex2.js"></script>
+</body>
+
+</html>
